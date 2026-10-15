@@ -1,27 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <title>Color</title>
 </head>
 <body>
 
-    <h1>pH Scale</h1>
-<p class="fourteen">14.0 VERY ALKALINE</p>
-<p class="thirteen">13.0</p>
-<p class="twelve">12.0</p>
-<p class="eleven">11.0</p>
-<p class="ten">10.0</p>
-<p class="nine">9.0</p>
-<p class="eight">8.0</p>
-<p class="seven">7.0 NEUTRAL</p>
-<p class="six">6.0</p>
-<p class="five">5.0</p>
-<p class="four">4.0</p>
-<p class="three">3.0</p>
-<p class="two">2.0</p>
-<p class="one">1.0</p>
-<p class="zero">0.0 VERY ACID</p>
-    
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo-container">
+    <img src="C:/Users/Bareera/Downloads/profile pic.png" alt="Profile Pic" class="profile-pic">
+    <span class="brand-name"><strong>DevProfile</strong></span>
+  </div>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- FEATURE 1: Dark Mode Toggle Layout Shell -->
+        <button class="theme-toggle" aria-label="Toggle Theme">Theme</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm a <span class="highlight">Frontend Developer</span></h1>
+            <p>I build clean, pixel-perfect, and responsive web interfaces using semantic HTML and modern CSS.</p>
+            <p style="margin: 0; line-height: 1.4;">Phone Number: 0092 322 789 7654</p>
+            <p style="margin: 0; line-height: 1.4;">Whatsapp Number: 0092 322 789 7654</p>
+            <p style="margin: 0; line-height: 1.4;">Email: bareera.test@gmail.com</p>
+
+<br>
+
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2 class="headers">Core Tech Stack</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Semantic markup, SEO structure, and web accessibility standards.</p>
+            </div>
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Flexbox, Grid systems, responsive styling, and custom animations.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Responsive Design</h3>
+                <p>Mobile-first UI layouts that scale seamlessly across devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 2: Experience Timeline Section -->
+    <section id="experience" class="experience-section">
+        <h2 class="headers">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2026 - Present</div>
+                <div class="timeline-content">
+                    <h3>Frontend Developer</h3>
+                    <p>Building responsive web structures, maintaining high-fidelity codebases, and executing cross-browser layouts.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2022 - 2025</div>
+                <div class="timeline-content">
+                    <h3>Junior Creator</h3>
+                    <p>Designed and structured small fundamentals of computer science and coding using visual-block apps like Scratch which allows juniors to build basic games, create animations, and develop problem-solving skills without typing code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="headers">Featured Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Landing Page Template</h3>
+                    <p>A beautiful responsive page built completely with pure HTML Flexbox grid layouts.</p>
+                    <br>
+                    <a href="file:///C:/JUN/HTML/Class%203/CSS/Home%20Work/Home%20Work%20for%20Class%203/index.html" class="link">View This Project</a>
+                    
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>CSS Layout Dashboard</h3>
+                    <p>A complex dashboard layout utilizing CSS Grid properties for modular components.</p>
+                    <br>
+                    <a href="file:///C:/JUN/HTML/Class%203/CSS/Home%20Work/Home%20Work%20for%20Class%206/Home%20Work%201/index.html" class="link">View This Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>HTML Website Layout</h3>
+                    <p>A complex dashboard layout utilizing HTML properties for modular components.</p>
+                    <br>
+                    <a href="file:///C:/JUN/HTML/Class%203/Websites/My%20first%20wbsite/task.html" class="link">View This Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>HTML & CSS Card Layout</h3>
+                    <p>A stunning and elegant responsive card built completely with pure HTML Flexbox grid & CSS layouts</p>
+                    <br>
+                    <a href="file:///C:/JUN/HTML/Class%203/CSS/Home%20Work/Home%20Work%20for%20Class%204/index.html" class="link">View This Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 3: Responsive Contact Form Layout -->
+    <section id="contact" class="contact-section">
+        <div class="touch">
+            <h2 class="headers">Get In Touch</h2>
+        <form class="contact-form" onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Developer Portfolio. Handcrafted using HTML & CSS.</p>
+    </footer>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the theme toggle button using your exact class name
+    const toggleButton = document.querySelector('.theme-toggle');
+
+    if (toggleButton) {
+        // Handle theme changing on click
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('portfolio-theme', newTheme);
+        });
+    }
+});
+
+    </script>
+
 </body>
 </html>
+

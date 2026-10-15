@@ -1,43 +1,429 @@
+/* --- Global Theme Variables --- */
+:root {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e9ecef;
+    --bg-hover: #ced4da;
+    --bg-card-hover: #f1f3f5;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --text-nav: #555555;
+    --accent: #007bff;
+    --accent-hover: #0056b3;
+    --border-color: #ced4da;
+    --border-hover: #adb5bd;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-heavy: rgba(0,0,0,0.1);
+    --shadow-accent: rgba(0, 123, 255, 0.15);
+    --shadow-accent-hover: rgba(0, 123, 255, 0.3);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #2a2a2a;
+    --bg-hover: #3a3a3a;
+    --bg-card-hover: #252525;
+    --text-main: #f5f5f5;
+    --text-muted: #b0b0b0;
+    --text-nav: #cccccc;
+    --accent: #3b82f6;       /* Slightly brighter blue for dark mode readability */
+    --accent-hover: #60a5fa; /* Lighter hover state blue for dark mode contrast */
+    --border-color: #444444;
+    --border-hover: #666666;
+    --shadow-light: rgba(0,0,0,0.3);
+    --shadow-heavy: rgba(0,0,0,0.5);
+    --shadow-accent: rgba(59, 130, 246, 0.15);
+    --shadow-accent-hover: rgba(59, 130, 246, 0.3);
+}
+
+/* --- Global Styles & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-background-color: silver;
-color: white;
-padding: 20px;
-font-family: Arial, Verdana, sans-serif;}
-h1 {
-background-color: #ffffff;
-background-color: hsla(0,100%,100%,0.5);
-color: #64645A;
-padding: inherit;}
-p {
-padding: 5px;
-margin: 0px;}
-p.zero {
-background-color: rgb(238,62,128);}
-p.one {
-background-color: rgb(244,90,139);}
-p.two {
-background-color: rgb(243,106,152);}
-p.three {
-background-color: rgb(244,123,166);}
-p.four {
-background-color: rgb(245,140,178);}
-p.five {
-background-color: rgb(246,159,192);}
-p.six {
-background-color: rgb(245,176,204);}
-p.seven {
-background-color: rgb(0,187,136);}
-p.eight {
-background-color: rgb(140,202,242);}
-p.nine {
-background-color: rgb(114,193,240);}
-p.ten {
-background-color: rgb(84,182,237);}
-p.eleven {
-background-color: rgb(48,170,233);}
-p.twelve {
-background-color: rgb(0,160,230);}
-p.thirteen {
-background-color: rgb(0,149,226);}
-p.fourteen {
-background-color: rgb(0,136,221);}
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Navigation & Theme Toggle --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-nav);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* HOVER: Underline slide animation for Nav Links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+}
+
+.brand-name{
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle {
+    background: var(--bg-tertiary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+/* HOVER: Theme Toggle button scales slightly */
+.theme-toggle:hover {
+    background: var(--bg-hover);
+    transform: scale(1.05);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+    padding: 0 20px;
+    transition: background 0.3s ease;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content .highlight {
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-accent);
+}
+
+/* HOVER: Button lifts up and deepens shadow */
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-accent-hover);
+}
+
+/* --- Common Section Structure --- */
+.skills-section, .experience-section, .projects-section, .contact-section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.skills-section h2, .experience-section h2, .projects-section h2, .contact-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+/* --- Skills Layout --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-bottom: 3px solid transparent;
+}
+
+/* HOVER: Skill card rises up and shows a bottom accent line */
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px var(--shadow-heavy);
+    border-bottom: 3px solid var(--accent);
+}
+
+.skill-card h3 {
+    margin-bottom: 15px;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+/* --- Experience Timeline Layout --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 30px;
+    border-left: 3px solid var(--accent);
+    transition: border-color 0.3s ease;
+}
+
+.headers {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: color 0.3s ease;
+}
+
+.link{
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--accent-hover);
+    outline: none;
+    width: 200px;
+    flex-wrap: wrap;
+    transition: color 0.3s ease;
+}
+
+.headers :after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.headers a:hover {
+  color: var(--accent);
+}
+
+.headers a:hover::after {
+  width: 100%;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -38px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--bg-primary);
+    transition: all 0.3s ease;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.timeline-content {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+/* HOVER: Timeline item changes background subtly and glows the connector dot */
+.timeline-item:hover .timeline-content {
+    box-shadow: 0 6px 12px var(--shadow-heavy);
+    background-color: var(--bg-card-hover);
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--accent-hover);
+    transform: scale(1.3);
+}
+
+/* --- Projects Layout --- */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    background: var(--bg-secondary);
+    flex: 1 1 calc(50% - 30px);
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    border-top: 5px solid var(--accent);
+    padding: 35px;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* HOVER: Project card expands slightly, turns the border color deeper */
+.project-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px var(--shadow-accent);
+    border-top-color: var(--accent-hover);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+/* --- Contact Form Layout --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    text-align: left;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+/* HOVER & FOCUS: Inputs light up beautifully */
+.form-group input:hover, .form-group textarea:hover {
+    border-color: var(--border-hover);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--shadow-accent);
+    background-color: var(--bg-secondary);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #212529; /* Kept permanently dark as per standard design patterns */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* --- Mobile Breakpoint Optimization --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .project-card {
+        flex: 1 1 100%;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+}
