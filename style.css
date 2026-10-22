@@ -161,9 +161,36 @@ body {
     margin-bottom: 20px;
 }
 
-.hero-content .highlight {
-    color: var(--accent);
-    transition: color 0.3s ease;
+.hero-content .highlight { 
+  /* Removed transition to prevent conflicts with the color animation */
+  
+  animation-name: highlightb; 
+  animation-duration: 5s; 
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+} 
+
+@keyframes highlightb {
+  0% {
+    color: #007bff; /* Animates text color, width removed to prevent snapping */
+  }
+  25% {
+    color: rgb(169, 89, 255);
+  }
+  50% {
+    color: rgb(252, 85, 254);
+  }
+  75% {
+    color: rgb(18, 214, 249);
+  }
+  100% {
+    color: #007bff; /* Perfectly loops back to the start color */
+  }
+}
+
+.color{
+    color: #007BFF;
+    font-family: cursive;
 }
 
 .hero-content p {
@@ -190,7 +217,9 @@ body {
 /* HOVER: Button lifts up and deepens shadow */
 .btn:hover {
     background-color: var(--accent-hover);
+    background-color: #489ffc;
     transform: translateY(-3px);
+    /* transform: scale(1.1); */
     box-shadow: 0 6px 12px var(--shadow-accent-hover);
 }
 
